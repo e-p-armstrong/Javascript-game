@@ -10,8 +10,9 @@ class Field {
     constructor (){
         this.fieldArr = [[]]
         this.playerIndex = [0,0]
-        this.print = this.print.bind(this)
-        this.generateField = this.generateField.bind(this)
+        //Not actually sure if I have to do this, but React put the instinct in me, so...
+        // this.print = this.print.bind(this)
+        // this.generateField = this.generateField.bind(this)
         
     }
     print() {
@@ -22,16 +23,16 @@ class Field {
     }
     generateField(){
         const charactersToChoose = [hole,fieldCharacter,fieldCharacter,fieldCharacter]
-        const startingRow = [characterCharacter,fieldCharacter,fieldCharacter,fieldCharacter];
+        const startingRow = [characterCharacter,fieldCharacter,fieldCharacter,fieldCharacter,fieldCharacter,fieldCharacter];
         const resultArray = [startingRow]
         for (let i = 0; i < 6; i++){
             const numberLessThanThree = () => Math.floor(Math.random()*4);
             const newChar = () => charactersToChoose[numberLessThanThree()];
-            const newArrayLine = ([newChar(),newChar(),newChar(),newChar()]);
+            const newArrayLine = ([newChar(),newChar(),newChar(),newChar(),newChar(),newChar()]);
             resultArray.push(newArrayLine)
         }
 
-        const finalRow = [hole,hole,fieldCharacter,hat]
+        const finalRow = [hole,hole,fieldCharacter,hat,fieldCharacter,hole]
         resultArray.push(finalRow)
         this.fieldArr = resultArray
     }
